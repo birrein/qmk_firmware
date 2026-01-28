@@ -107,6 +107,7 @@ tags
 /.vs
 id_rsa_*
 secrets.tar
+qmk_firmware.sln
 
 # Python things
 __pycache__

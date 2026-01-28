@@ -5,3 +5,25 @@
 
 #pragma once
 
+// Compatibility aliases for newer QMK keycode names.
+#ifndef KC_MS_L
+#define KC_MS_L MS_LEFT
+#define KC_MS_R MS_RGHT
+#define KC_MS_U MS_UP
+#define KC_MS_D MS_DOWN
+#define KC_BTN1 MS_BTN1
+#define KC_BTN2 MS_BTN2
+#define KC_BTN3 MS_BTN3
+#define KC_WH_L MS_WHLL
+#define KC_WH_R MS_WHLR
+#define KC_WH_U MS_WHLU
+#define KC_WH_D MS_WHLD
+#endif
+
+#ifndef RGB_TOG
+#define RGB_TOG RM_TOGG
+#define RGB_MOD RM_NEXT
+#define RGB_HUI RM_HUEU
+#define RGB_SAI RM_SATU
+#define RGB_VAI RM_VALU
+#endif
