@@ -1,5 +1,4 @@
 #include QMK_KEYBOARD_H
-#include "../../../../layouts/community/split_3x6_3/manna-harbour_miryoku/config.h"
 
 enum combo_events {
   NM_ENYE,
