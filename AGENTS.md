@@ -48,3 +48,5 @@
 ## Note
 
 - Build artifacts are generated in `.build/`.
+- Use Conventional Commits for commit messages, for example:
+  `feat(keymap): add monitor brightness keys to media layer`
