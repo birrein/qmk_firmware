@@ -6,6 +6,20 @@
 - Preferred keymap: `birrein_miryoku`
 - Legacy keymap (kept for compatibility): `manna-harbour_miryoku`
 
+## Miryoku base
+
+- Treat `birrein_miryoku` as a local customization layer on top of Miryoku.
+- Assume Miryoku behavior first when answering questions about layers, tap dances, layer switching, and inherited key positions.
+- Check local overrides in:
+  `keyboards/crkbd/keymaps/birrein_miryoku/config.h`
+  `keyboards/crkbd/keymaps/birrein_miryoku/keymap.c`
+- Check inherited Miryoku behavior in:
+  `users/manna-harbour_miryoku/manna-harbour_miryoku.c`
+  `users/manna-harbour_miryoku/miryoku_babel/miryoku_layer_alternatives.h`
+  `users/manna-harbour_miryoku/miryoku_babel/miryoku_layer_selection.h`
+- If a behavior is not visible in the local keymap, assume it may come from Miryoku before concluding it is missing.
+- Important example: layer-default changes can come from Miryoku tap dances, not only from explicit local keycodes.
+
 ## Core commands
 
 - Compile:
