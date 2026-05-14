@@ -19,6 +19,10 @@
   `users/manna-harbour_miryoku/miryoku_babel/miryoku_layer_selection.h`
 - If a behavior is not visible in the local keymap, assume it may come from Miryoku before concluding it is missing.
 - Important example: layer-default changes can come from Miryoku tap dances, not only from explicit local keycodes.
+- Before recommending new key assignments, inspect the effective local + inherited keymap and avoid suggesting keys that are already mapped in natural Miryoku positions, especially the thumb keys:
+  `Esc`, `Space`, `Tab`, `Enter`, `Backspace`, and `Delete`.
+- `CW_TOGG` is already available through inherited Miryoku as left thumb `LT(U_NAV, KC_SPC)` + `H`; treat base-layer `CW_TOGG` on the left outer home key as redundant unless the user explicitly wants a dedicated key.
+- Local `process_record_user()` explicitly maps `Shift + CW_TOGG` to `KC_CAPS` because the inherited Miryoku `key_override` did not reliably produce Caps Lock on this keymap.
 
 ## Core commands
 
