@@ -42,6 +42,24 @@ combo_t key_combos[] = {
   [NM_ENYE] = COMBO_ACTION(nm_enye_combo),
 };
 
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
+  switch (keycode) {
+    case LGUI_T(KC_A):
+    case RGUI_T(KC_SCLN):
+      return 200;
+    case LSFT_T(KC_F):
+    case RSFT_T(KC_J):
+      return 150;
+    case LALT_T(KC_S):
+    case LCTL_T(KC_D):
+    case RCTL_T(KC_K):
+    case RALT_T(KC_L):
+      return 200;
+    default:
+      return TAPPING_TERM;
+  }
+}
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   static bool caps_lock_from_cw_togg = false;
 

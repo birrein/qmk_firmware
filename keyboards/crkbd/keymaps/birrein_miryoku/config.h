@@ -29,6 +29,9 @@ K35,  K36,  K37 \
 // macOS ABC-specific dead key: tap for acute, Shift+tap for diaeresis.
 #define ACNT QK_KB_0
 
+// Match Alan-TheGentleman's home-row mod timing strategy per modifier type.
+#define TAPPING_TERM_PER_KEY
+
 /*
 Visual guide for the layer macros below (Corne 3x6_3_ex2):
 
@@ -45,7 +48,7 @@ left hand -> right hand, with the split shown by extra spacing in the source.
 // Keymap-specific tweak kept local: quote on right-hand home-row outer key.
 #define MIRYOKU_LAYER_BASE \
 /* top        */ KC_GRV,             KC_Q,               KC_W,               KC_E,               KC_R,               KC_T,               KC_Y,               KC_U,               KC_I,               KC_O,               KC_P,                 KC_MINS, \
-/* home       */ CW_TOGG,            LGUI_T(KC_A),       LALT_T(KC_S),       LCTL_T(KC_D),       LSFT_T(KC_F),       KC_G,               KC_H,               LSFT_T(KC_J),       LCTL_T(KC_K),       LALT_T(KC_L),       LGUI_T(KC_SCLN),      KC_QUOT, \
+/* home       */ CW_TOGG,            LGUI_T(KC_A),       LALT_T(KC_S),       LCTL_T(KC_D),       LSFT_T(KC_F),       KC_G,               KC_H,               RSFT_T(KC_J),       RCTL_T(KC_K),       RALT_T(KC_L),       RGUI_T(KC_SCLN),      KC_QUOT, \
 /* bottom     */ KC_LSFT,            LT(U_BUTTON,KC_Z),  ALGR_T(KC_X),       KC_C,               KC_V,               KC_B,               KC_N,               KC_M,               KC_COMM,            ALGR_T(KC_DOT),     LT(U_BUTTON,KC_SLSH), ACNT, \
 /* ex2+thumbs */ U_EXL1,             U_EXL2,             LT(U_MEDIA,KC_ESC), LT(U_NAV,KC_SPC),   LT(U_MOUSE,KC_TAB),                     LT(U_SYM,KC_ENT),   LT(U_NUM,KC_BSPC),  LT(U_FUN,KC_DEL),   U_EXR1,             U_EXR2
 
