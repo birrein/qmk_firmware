@@ -32,6 +32,13 @@ K35,  K36,  K37 \
 // Match Alan-TheGentleman's home-row mod timing strategy per modifier type.
 #define TAPPING_TERM_PER_KEY
 
+// Send taps immediately during typing sequences while retaining home-row mods.
+#define FLOW_TAP_TERM 150
+
+// Resolve nested opposite-hand chords as holds before the tapping term.
+#define CHORDAL_HOLD
+#define PERMISSIVE_HOLD
+
 /*
 Visual guide for the layer macros below (Corne 3x6_3_ex2):
 
@@ -58,12 +65,13 @@ left hand -> right hand, with the split shown by extra spacing in the source.
 /* bottom     */ KC_LSFT,            KC_Z,               KC_X,               KC_C,               KC_V,               KC_B,               KC_N,               KC_M,               KC_COMM,            KC_DOT,             KC_SLSH,            ACNT, \
 /* ex2+thumbs */ U_EXL1,             U_EXL2,             KC_ESC,             KC_SPC,             KC_TAB,                                 KC_ENT,             KC_BSPC,            KC_DEL,             U_EXR1,             U_EXR2
 
-// Keep Miryoku number defaults, but add comma on the free lower-left key.
+// Keep the number grid; add inner-column operators and dot/zero/comma thumbs.
+// Retain the lower-left comma as an alternative access point.
 #define MIRYOKU_LAYER_NUM \
 /* top        */ U_NP,               KC_LBRC,            KC_7,               KC_8,               KC_9,               KC_RBRC,            U_NA,               TD(U_TD_U_BASE),    TD(U_TD_U_EXTRA),   TD(U_TD_U_TAP),     TD(U_TD_BOOT),     U_NP, \
 /* home       */ U_NP,               KC_SCLN,            KC_4,               KC_5,               KC_6,               KC_EQL,             U_NA,               KC_LSFT,            KC_LCTL,            KC_LALT,            KC_LGUI,           U_NP, \
 /* bottom     */ KC_COMM,            KC_GRV,             KC_1,               KC_2,               KC_3,               KC_BSLS,            U_NA,               TD(U_TD_U_NUM),     TD(U_TD_U_NAV),     KC_ALGR,            U_NA,              U_NP, \
-/* ex2+thumbs */ U_NP,               U_NP,               KC_DOT,             KC_0,               KC_MINS,                                U_NA,               U_NA,               U_NA,               U_NP,               U_NP
+/* ex2+thumbs */ KC_MINS,            KC_PLUS,            KC_DOT,             KC_0,               KC_COMM,                                U_NA,               U_NA,               U_NA,               KC_ASTR,            KC_SLSH
 
 // Keep Miryoku media defaults, but add monitor brightness on comma and dot.
 #define MIRYOKU_LAYER_MEDIA \

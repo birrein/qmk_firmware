@@ -1,5 +1,14 @@
 #include QMK_KEYBOARD_H
 
+// Cover the full EX2 layout instead of the generated 3x5 handedness map.
+// Exempt thumbs so Miryoku's same-hand layer functions remain accessible.
+const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM = LAYOUT_miryoku(
+  'L', 'L', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R', 'R', 'R',
+  'L', 'L', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R', 'R', 'R',
+  'L', 'L', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R', 'R', 'R',
+  'L', 'L', '*', '*', '*', '*', '*', '*', 'R', 'R'
+);
+
 static void tap_mac_dead_key(uint16_t keycode) {
   uint8_t mods = get_mods();
   uint8_t weak_mods = get_weak_mods();
@@ -49,7 +58,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
       return 200;
     case LSFT_T(KC_F):
     case RSFT_T(KC_J):
-      return 150;
+      return 200;
     case LALT_T(KC_S):
     case LCTL_T(KC_D):
     case RCTL_T(KC_K):
@@ -58,6 +67,14 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     default:
       return TAPPING_TERM;
   }
+}
+
+uint16_t get_flow_tap_term(uint16_t keycode, keyrecord_t *record, uint16_t prev_keycode) {
+  // Keep right Shift available immediately after typing; preserve other Flow Tap keys.
+  if (keycode == RSFT_T(KC_J)) {
+    return 0;
+  }
+  return is_flow_tap_key(keycode) && is_flow_tap_key(prev_keycode) ? FLOW_TAP_TERM : 0;
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
